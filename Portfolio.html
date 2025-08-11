@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ali Aliyev — Portfolio</title>
+    <meta
+      name="description"
+      content="Ali Aliyev · PMP | Product Manager & Venture Builder · Major Events Specialist"
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            container: { center: true, padding: "1rem" },
+            fontFamily: { sans: ["Inter", "ui-sans-serif", "system-ui"] },
+          },
+        },
+      };
+    </script>
+
+    <!-- Fonts / AOS / Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script
+      src="https://kit.fontawesome.com/a2e0e6ad53.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .u {
+        position: relative;
+        display: inline-block;
+      }
+      .u:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(
+          90deg,
+          rgba(59, 130, 246, 0.25),
+          rgba(99, 102, 241, 0.25)
+        );
+        border-radius: 6px;
+      }
+      .glass {
+        backdrop-filter: blur(8px);
+        background: rgba(255, 255, 255, 0.7);
+      }
+      .dark .glass {
+        background: rgba(17, 24, 39, 0.5);
+      }
+
+      /* Segmented tabs */
+      .seg2 {
+        position: relative;
+        display: flex;
+        gap: 0.25rem;
+        padding: 0.25rem;
+        border-radius: 9999px;
+      }
+      .seg2-indicator {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        height: calc(100% - 8px);
+        border-radius: 9999px;
+        border: 1px solid rgba(59, 130, 246, 0.25);
+        background: linear-gradient(
+          180deg,
+          rgba(59, 130, 246, 0.12),
+          rgba(99, 102, 241, 0.12)
+        );
+        box-shadow: 0 2px 6px rgba(2, 6, 23, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        transition: all 0.28s cubic-bezier(0.2, 0.6, 0.2, 1);
+        pointer-events: none;
+      }
+      .dark .seg2-indicator {
+        border-color: rgba(99, 102, 241, 0.25);
+        background: linear-gradient(
+          180deg,
+          rgba(99, 102, 241, 0.18),
+          rgba(30, 41, 59, 0.18)
+        );
+      }
+      .seg2-btn {
+        position: relative;
+        z-index: 1;
+        border-radius: 9999px;
+        padding: 0.6rem 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #334155;
+        transition: color 0.2s ease;
+        outline: none;
+      }
+      .seg2-btn[aria-selected="true"] {
+        color: #1d4ed8;
+      }
+      .dark .seg2-btn {
+        color: #e2e8f0;
+      }
+      .seg2-btn:focus-visible {
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.6);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 text-slate-900 dark:text-slate-100"
+  >
+    <!-- DATA -->
+    <script>
+      const profile = {
+        name: "Ali Aliyev",
+        roleCycle: [
+          "Product Manager",
+          "Major Events Specialist",
+          "Venture Builder",
+          "Venue Operations",
+          "Product Owner",
+        ],
+        headline: "Product Manager • Startup Builder • Major Events Specialist",
+        location: "Baku, Azerbaijan",
+        about:
+          "I turn zero‑to‑one ideas into shipped products with clear metrics, crisp UX that solve real problems and lead events that leave lasting impressions — from launching startups to managing global stages. ",
+        links: {
+          linkedin: "https://www.linkedin.com/in/ali-aliyev-51b829197",
+          email: "mailto:alialieff4@gmail.com",
+          cvProduct: "https://drive.google.com/your-product-cv-direct-link", // <- replace with direct download
+          cvEvents: "https://drive.google.com/your-events-cv-direct-link", // <- replace with direct download
+        },
+        highlights: [
+          { icon: "fa-briefcase", label: "6+ Years Experience" },
+          { icon: "fa-rocket", label: "7+ Startups Launched" },
+          { icon: "fa-calendar-check", label: "17 Major Events" },
+        ],
+        projects: [
+          {
+            name: "Krepp | Short-term online microloan services",
+            tag: "FinTech",
+            impact:
+              "Mobile app to get short-term, online microloans by pledging the device",
+            link: "https://krepp.app",
+          },
+          {
+            name: "BOOST | Influencer Marketing Platform",
+            tag: "MarTech",
+            impact: "AI platform to find niche influencers and run campaigns",
+            link: "https://boost.az",
+          },
+          {
+            name: "KITE | Car sharing solution",
+            tag: "MobilityTech",
+            impact: "City car sharing app for in-city rides",
+            link: "https://kite.app",
+          },
+          {
+            name: "Payonix | QR payment for retail",
+            tag: "FinTech",
+            impact: "Digital banking with QR payments in restaurants and shops",
+            link: "https://payonix.com",
+          },
+          {
+            name: "Bazardone | B2B Restaurant Supplier Marketplace",
+            tag: "FoodTech",
+            impact: "Digitizing grocery ordering for HoReCa from suppliers",
+            link: "https://bazardone.com/sign-in",
+          },
+          {
+            name: "GUMRAH | Corporate Health Benefit",
+            tag: "HealthTech",
+            impact: "Employee health benefit integrated with public hospitals",
+            link: "https://gumrah.app",
+          },
+          {
+            name: "CanScreen | AI Candidate screening",
+            tag: "HRTech",
+            impact: "Automates hiring, cuts costs ~45%, speeds screening",
+            link: "https://canscreen.io",
+          },
+          {
+            name: "Qonshu | Building management solution",
+            tag: "PropTech",
+            impact: "Residents app for payments, issues, and community",
+            link: "https://qonshu.az",
+          },
+          {
+            name: "Gymby | Gym Management Platform",
+            tag: "HealthTech",
+            impact: "QR check‑ins, schedules, attendance, booking",
+            link: "#",
+          },
+        ],
+        /* categories: product / events */
+        experience: [
+          {
+            title: "Venture Manager / Product Builder",
+            company: "SABAH.Studio Innovation Center",
+            dates: "Feb 2025 - Present",
+            categories: ["product"],
+            bullets: [
+              "Supporting the development and launch of early-stage startups across various industries",
+              "Conducting market research, competitor benchmarking, and problem-solution validation for new venture ideas",
+              "Collaborating with entrepreneurs, designers, and developers to build MVPs and refine business models",
+              "Assisting in the creation of pitch decks, investor materials, and go-to-market strategies",
+              "Coordinating ideation workshops, sprint planning sessions, and demo days",
+              "Working closely with the Studio Director and venture teams to ensure progress on KPIs and milestone delivery",
+            ],
+          },
+          {
+            title: "Product Manager",
+            company: "KRAPP LLC | Microlending mobile app",
+            dates: "Sep 2022 - Present",
+            categories: ["product"],
+            bullets: [
+              "Startup Management",
+              "Creating of a business plan for the startup",
+              "Developing a clear product vision and strategy for online loan system",
+              "Close communication and management of developers for several 3rd party API integrations and development of the fully developed mobile app in 2 different desings",
+              "Establishing cross-functional tools for keeping the operations teams aligned",
+              "Closely collaborating with the CEO to ensure the product roadmap aligns with product strategy and vision",
+            ],
+          },
+          {
+            title: "Product Owner",
+            company: "Baku Carsharing LLC",
+            dates: "Sep 2023 - Jan 2025",
+            categories: ["product"],
+            bullets: [
+              "Startup Management",
+              "Creating a new innovative solutions for carsharing ecosystem",
+              "Developing a clear product plan and strategy making the carsharing solution work",
+              "Close communication and management of developers to create unique design and several 3rd party API integrations and development of the fully developed mobile app",
+              "Researching and integrating hardware solutions to the cars ecu system to make it work",
+              "Closely collaborating with the CEO to ensure the product roadmap aligns with product strategy and vision",
+            ],
+          },
+          {
+            title: "Product Owner",
+            company: "BOOST LLC | Influencer Marketing Platform",
+            dates: "July 2022 - Oct 2024",
+            categories: ["product"],
+            bullets: [
+              "Main connection between sales team and influencer support team",
+              "Establishing cross-functional tools for keeping the operations teams aligned",
+              "Exporting and analyzing data from the campaigns based on the requirements of the business partners to deliver the best solutions",
+              "Accountable for product-specific KPIs and regular communication of KPIs to the CEO",
+              "Working closely with the CEO to establish each product’s business value proposition",
+            ],
+          },
+          {
+            title: "National Product Head",
+            company: "AIESEC in Azerbaijan | International youth-run , NGO",
+            dates: "July 2019 - July 2022",
+            categories: ["product"],
+            bullets: [
+              "Responsible for developing AlESEC's product strategies in the Azerbaijan market and leading a network of more than 60 people.",
+              "Managing a board of 6 Vice-Presidents of 3 different local branches;",
+              "Creating and implementing social projects and local events with Interns from different countries",
+              "Final responsible directly for the sales department, event management, and incoming global exchange products of 3 local committees",
+              "Applying Team Standards and providing area routine for the team",
+              "Implementing statistical automated data tracking  strategies",
+              "Creating International Relations and Sales Partnerships",
+            ],
+          },
+          {
+            title: "Project Manager",
+            company: "Payonix | Fintech mobile app, qr payment",
+            dates: "August 2021 - July 2022",
+            categories: ["product"],
+            bullets: [
+              "Extracting and reporting needed data from the database to the superiors;",
+              "Assisted developers in the implementation of new updates to the admin page for merchants",
+              "Working closely with the Sales & Integration team to understand client’s needs",
+              "Data collection based on the users' needs and merchants' problems",
+              "Analysis of all collected data weekly and consolidation monthly KPIs of department members",
+            ],
+          },
+          {
+            title: "Sales Manager",
+            company: "Keepface Global Inc. | Influencer Marketing Company",
+            dates: "September 2020 - July 2021",
+            categories: ["product"],
+            bullets: [
+              "Realizing Industry & Market research for digital marketing",
+              "Optimizing campaigns for performance improvement",
+              "Analyzing the influencer experience on a regular basis",
+              "Leads acquisition & Holding meetings for sales of services",
+              "Conducting partners approach and international sales of campaigns",
+            ],
+          },
+          {
+            title: "Spectator Services & Access Control Lead Specialist",
+            company: "BCC | UFC Fight Night Baku",
+            dates: "June 2025",
+            categories: ["events"],
+            bullets: [
+              "Responsible for spectator operations and access control at a venue with 15,000+ attendees.",
+              "Implemented crowd management strategies and acted as first point of contact for issue resolution in both grandstand and hallway zones",
+              "Led volunteer coordination, including shift planning, daily briefings, and on-site supervision.",
+              "Supported check-in and ticket validation processes, resolving real-time issues across entry points.",
+              "Ensured delivery of all spectator-facing services and collaborated with logistics and security teams",
+            ],
+          },
+          {
+            title: "Venture Associate",
+            company: "Baku Investment Day 2025",
+            dates: "June 2025",
+            categories: ["events"],
+            bullets: [
+              " Supported backstage operations and session flow, ensuring smooth transitions and on-time execution of stage programming.",
+              "Assisted in stakeholder coordination, managing schedules, checklists, and operational logistics throughout the event.",
+              "Helped maintain order and readiness across stage and exhibition areas to ensure a seamless attendee experience",
+            ],
+          },
+          {
+            title: "Venture Associate",
+            company: "Baku Investment Day 2025",
+            dates: "June 2025",
+            categories: ["events"],
+            bullets: [
+              " Supported backstage operations and session flow, ensuring smooth transitions and on-time execution of stage programming.",
+              "Assisted in stakeholder coordination, managing schedules, checklists, and operational logistics throughout the event.",
+              "Helped maintain order and readiness across stage and exhibition areas to ensure a seamless attendee experience",
+            ],
+          },
+          {
+            title: "Zone Manager",
+            company: "COP29 | Orientations Events",
+            dates: "Sep 2024 – Dec 2024",
+            categories: ["events"],
+            bullets: [
+              " Led bump-in operations and supported FF&E logistics to ensure timely and organized zone setup.",
+              "Managed live-day operations, including zone-wide crowd control, issue escalation, and technical coordination.",
+              "Worked closely with logistics, production, and procurement teams to deliver seamless execution.",
+              "Conducted daily checklists and inspections to ensure readiness and resolve operational issues proactively.",
+              "Delivered zone focused trainings to onboard and prepare support ushers.",
+              "Acted as liaison with vendors and contractors to coordinate service delivery and infrastructure needs.",
+            ],
+          },
+          {
+            title: "Venue Operations Specialist",
+            company: "Formula 1, Baku GP",
+            dates: "Jul 2024 – Sep 2024",
+            categories: ["events"],
+            bullets: [
+              "Oversaw zone operations and crowd flow to ensure safety and guest satisfaction.",
+              "Planned and managed transport routes for VIPs and F1 drivers, ensuring timely access to hospitality zones, fan areas, and protocol-designated events",
+              "Led a 30-person SPS team, overseeing setup, maintenance, and on-site support.",
+              "Coordinated with ticketing, logistics, and security to manage entry and signage.",
+              "Conducted venue inspections, proactively identifying and resolving issues",
+            ],
+          },
+          {
+            title: "Venue Operations Team Leader",
+            company: "Formula 1, Baku GP",
+            dates: "Mar 2023 – Apr 2023",
+            categories: ["events"],
+            bullets: [
+              " Led a 10-person volunteer team, ensuring smooth event operations and high service standards.",
+              "Managed daily operations in collaboration with logistics, ticketing, and security teams to ensure smooth crowd flow and safe access control.",
+              "Conducted daily checklists and zone inspections to maintain readiness and resolve operational issues before public entry",
+            ],
+          },
+          {
+            title: "Event Manager ",
+            company: "AIESEC in Poland",
+            dates: "Jul 2022 – Oct 2022",
+            categories: ["events"],
+            bullets: [
+              " Planned and delivered leadership-focused sessions to youth in a community center.",
+              "Managed participants engagement, group behavior, and interactive learning environments.",
+              "Facilitated daily cultural exchange events, supporting international collaboration and inclusion.",
+            ],
+          },
+          {
+            title: "Zone Operations Manager ",
+            company: "Karate 1 Premier League 2022",
+            dates: "Jun 2022 - Jul 2022",
+            categories: ["events"],
+            bullets: [
+              "Oversaw operations within assigned zones, ensuring smooth event execution.",
+              "Coordinated with teams for setup, logistics, and on-ground activities.",
+              "Managed access control and compliance with event protocols.",
+              "Addressed operational challenges and implemented real-time solutions.",
+              "Liaised with event officials and stakeholders for zone-specific needs.",
+            ],
+          },
+          {
+            title: "Conference Manager",
+            company: "AIESEC in Azerbaĳan",
+            dates: "Jan 2021 – Jul 2022",
+            categories: ["events"],
+            bullets: [
+              "Successfully led the planning and execution of 4 national conferences, including a 4-day flagship event with 130+ delegates.",
+              "Oversaw full operational strategy across logistics, finance, marketing, and delegate experience.",
+              "Built and managed national partnerships based on market research to support event.",
+              "Directed an organizing committee, creating detailed plans, assigning roles.",
+              "Ensured on-site readiness, venue coordination, and seamless event delivery.",
+            ],
+          },
+          {
+            title: "Venue Operations Specialist",
+            company: "Formula 1, Baku GP",
+            dates: "May 2022 – Jun 2022",
+            categories: ["events"],
+            bullets: [
+              " Led a 10-person volunteer team, ensuring smooth event operations and high service standards.",
+              "Managed daily operations in collaboration with logistics, ticketing, and security teams to ensure smooth crowd flow and safe access control.",
+              "Conducted daily checklists and zone inspections to maintain readiness and resolve operational issues before public entry.",
+            ],
+          },
+          {
+            title: "Event Director",
+            company: "Develop with AIESEC",
+            dates: "Feb 2022 – May 2022",
+            categories: ["events"],
+            bullets: [
+              " Directed the planning and execution of personal development program for youth.",
+              "Coordinated logistics, venue setup, workshops, panels, and keynote sessions.",
+              "Managed speaker outreach and handled all protocol and on-site requirements.",
+              "Oversaw delegate communication, registration, and feedback collection to ensure a high-quality event experience.",
+              "Supervised organizing team and ensured smooth day-to-day flow during the event",
+            ],
+          },
+          {
+            title: "Concessions and F&B Coordinator",
+            company: "UEFA EURO 2020",
+            dates: "Jun 2021 – Jul 2021",
+            categories: ["events"],
+            bullets: [
+              " Preserve excellent levels of internal and external customer service",
+              "Identify customer's needs and respond proactively to all of their concerns",
+              "Lead F&B team by attracting, recruiting, training, and appraising talented personnel",
+              "Establish targets, KPI’s, schedules, policies and procedures",
+            ],
+          },
+          {
+            title: "Workforce Supervisor",
+            company: "55th European Karate Championship",
+            dates: "Feb 2020 – Apr 2020",
+            categories: ["events"],
+            bullets: [
+              "Organize and manage route scheduling, ensuring safe, fast paths are utilized. ",
+              "Ensured deliveries to hotels and resorts across the city.",
+              "Managed paperwork, including trip reports, driver logs, mileage, vouchers, and invoices",
+            ],
+          },
+          {
+            title: "Workforce Supervisor",
+            company: "World Futsal Championship Baku",
+            dates: "Sep 2019 – Oct 2019",
+            categories: ["events"],
+            bullets: [
+              "Prepared workforce schedules reports and plans.",
+              "Designed and implemented short-term and long-term strategies.",
+              "Interviewed and hired additional staff as needed for each shift.",
+            ],
+          },
+          {
+            title: "Transport Operations Supervisor",
+            company: "43rd session of the World Heritage Committee, UNESCO",
+            dates: "Jul 2019 – Aug 2019",
+            categories: ["events"],
+            bullets: [
+              "Coordinated transport for VIPs and delegates.",
+              "Supervised drivers and dispatchers.",
+              "Ensured timely transfers between venues and hotels.",
+              "Resolved transport-related issues on-site.",
+              "Collaborated with security and protocol teams.",
+            ],
+          },
+          {
+            title: "NOC Relations and Spectator Services Team Leader",
+            company: "EYOF 2019",
+            dates: "Jun 2019 – Jul 2019",
+            categories: ["events"],
+            bullets: [
+              "Tracking team members task delegation",
+              "Being responsible for members assisting sport competitors",
+              "Reporting to the supervisors about implementation of tasks",
+            ],
+          },
+          {
+            title: "City Operations Workforce Supervisor",
+            company: "UEFA EUROPA League Final Baku",
+            dates: "May 2019 – Jun 2019",
+            categories: ["events"],
+            bullets: [
+              "Managed and coordinated city operations workforce for the event.",
+              "Supervised recruitment, scheduling, and deployment of volunteers and staff.",
+              "Ensured workforce readiness and adherence to event protocols.",
+              "Facilitated training sessions to prepare the team for operational tasks.",
+              "Monitored team performance and resolved on-ground challenges.",
+            ],
+          },
+          {
+            title: "Airport Workforce Specialist",
+            company: "36th International Drug Enforcement Conference",
+            dates: "Apr 2019 – May 2019",
+            categories: ["events"],
+            bullets: [
+              "Responsible for Check-in of the whole operational zone and solving problems of staff and volunteers during the race time",
+              "Preparation of daily newsletters",
+              "Managing work schedule for staff dedicated to the airport team",
+              "Supporting and Managing the international delegates",
+            ],
+          },
+          {
+            title: "Grandstand Volunteer",
+            company: "Formula 1, Baku GP",
+            dates: "Mar 2019 - Apr 2019",
+            categories: ["events"],
+            bullets: [
+              "Assisted spectators with seating guidance and event information.",
+              "Ensured safety protocols and crowd management in assigned grandstand area.",
+              "Supported event operations by coordinating with security and staff.",
+            ],
+          },
+        ],
+        skills: [
+          "Product Strategy & Roadmapping",
+          "Startup Ideation & Go-to-Market Planning",
+          "UX/UI Collaboration & Prototyping",
+          "Marketplace & Platform Development (B2B & B2C)",
+          "Process Automation & AI Integration",
+          "Stakeholder & Partner Management",
+          "Data-Driven Decision Making (GA4, Mixpanel)",
+          "Agile/Scrum Project Management",
+          "Event Planning & On-Site Operations",
+          "Volunteer & Staff Coordination",
+          "Large-Scale Event Logistics & Scheduling",
+          "Cross-Functional Team Leadership",
+        ],
+        testimonials: [
+          {
+            quote: "Ali takes fuzzy problems to crisp launches.",
+            author: "Venture Partner",
+          },
+          {
+            quote: "Calm under pressure, obsessed with users.",
+            author: "Design Lead",
+          },
+        ],
+      };
+    </script>
+
+    <!-- NAV -->
+    <header class="fixed top-0 inset-x-0 z-50">
+      <nav
+        class="container max-w-6xl flex items-center justify-between gap-4 px-4 py-3 mt-2 glass rounded-2xl border border-white/60 dark:border-slate-800/60 shadow"
+      >
+        <a href="#home" class="font-extrabold text-lg tracking-tight"
+          >Ali Aliyev</a
+        >
+        <ul class="hidden md:flex items-center gap-6 text-sm">
+          <li><a class="hover:text-blue-600" href="#projects">Projects</a></li>
+          <li>
+            <a class="hover:text-blue-600" href="#experience">Experience</a>
+          </li>
+          <li><a class="hover:text-blue-600" href="#skills">Skills</a></li>
+          <li><a class="hover:text-blue-600" href="#contact">Contact</a></li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <a
+            id="lnk"
+            class="p-2 rounded hover:bg-blue-100/60 dark:hover:bg-slate-800"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin text-xl"></i
+          ></a>
+          <button
+            id="themeToggle"
+            class="p-2 rounded hover:bg-blue-100/60 dark:hover:bg-slate-800"
+            aria-label="Toggle theme"
+          >
+            <i class="fas fa-moon text-xl" id="themeIcon"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="pt-36 md:pt-40 pb-8">
+      <div
+        class="container max-w-6xl px-4 grid md:grid-cols-12 gap-10 items-center"
+      >
+        <div class="md:col-span-7" data-aos="fade-right">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+            <span class="u pr-1">Hi, I'm</span>
+            <span class="text-blue-600">Ali Aliyev</span>
+          </h1>
+          <p
+            class="text-lg md:text-xl text-blue-700 dark:text-indigo-300 font-semibold mb-3"
+          >
+            <span id="typing"></span>
+          </p>
+          <p
+            id="about"
+            class="text-slate-600 dark:text-slate-300 max-w-2xl mb-6"
+          ></p>
+
+          <div
+            id="highlights"
+            class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6"
+          ></div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <a
+              href="#projects"
+              class="px-4 py-2 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow"
+              >View Projects</a
+            >
+            <!-- CV button removed from hero as requested -->
+            <a
+              id="mail"
+              class="px-3 py-2 text-sm rounded-lg hover:bg-blue-50 dark:hover:bg-slate-800"
+              aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+
+          <div class="mt-8 grid sm:grid-cols-2 gap-4">
+            <div
+              class="glass border rounded-xl p-4 flex items-center gap-3"
+              data-aos="fade-up"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-blue-100 dark:bg-indigo-950 flex items-center justify-center"
+              >
+                <i class="fas fa-building text-blue-600"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500">Current</p>
+                <p id="currentRole" class="font-semibold"></p>
+              </div>
+            </div>
+            <div
+              class="glass border rounded-xl p-4 flex items-center gap-3"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="h-10 w-10 rounded-lg bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center"
+              >
+                <i class="fas fa-location-dot text-indigo-600"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-500">Location</p>
+                <p id="loc" class="font-semibold"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-5" data-aos="fade-left">
+          <div
+            class="relative max-w-md mx-auto aspect-[4/5] rounded-3xl overflow-hidden border shadow-xl"
+          >
+            <img
+              src="ali.jpg"
+              alt="Ali portrait"
+              class="h-full w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE with tabs + smaller left-aligned CV button -->
+    <section id="experience" class="py-16 bg-white/60 dark:bg-slate-950/40">
+      <div class="container max-w-6xl px-4">
+        <div class="flex flex-col gap-4 mb-6">
+          <div class="flex items-center justify-between gap-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold">Experience</h2>
+            <div
+              id="expTabs"
+              class="seg2 glass border border-white/60 dark:border-slate-800/60 shadow-inner"
+            >
+              <div
+                id="segIndicator"
+                class="seg2-indicator"
+                aria-hidden="true"
+              ></div>
+              <button
+                class="seg2-btn"
+                data-filter="product"
+                aria-selected="true"
+              >
+                Startups
+              </button>
+              <button
+                class="seg2-btn"
+                data-filter="events"
+                aria-selected="false"
+              >
+                Events
+              </button>
+            </div>
+          </div>
+
+          <!-- SMALL, LEFT-ALIGNED CV BUTTON -->
+          <div class="flex items-center justify-start">
+            <a
+              id="cvDownload"
+              href="#"
+              class="inline-flex items-center gap-2 px-3 py-2 text-sm rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow"
+              download
+              aria-label="Download CV"
+            >
+              <i class="fas fa-file-arrow-down"></i>
+              <span id="cvLabel">Download CV</span>
+            </a>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-500 mb-6">
+          Use the tabs to view relevant roles.
+        </p>
+
+        <div id="timeline" class="relative">
+          <div
+            class="absolute left-4 sm:left-1/2 sm:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-200 via-indigo-200 to-transparent"
+          ></div>
+          <!-- items injected -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-16">
+      <div class="container max-w-6xl px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-2">
+          Featured Projects
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-8">
+          Some of start-up projects I have build or worked on it
+        </p>
+        <div
+          id="projGrid"
+          class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        ></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-16">
+      <div class="container max-w-6xl px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Skills</h2>
+        <div id="skillsWrap" class="flex flex-wrap gap-3"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS
+    <section class="py-16 bg-white/60 dark:bg-slate-950/40">
+      <div class="container max-w-6xl px-4">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-8">
+          What people say
+        </h2>
+        <div id="testis" class="grid md:grid-cols-2 gap-6"></div>
+      </div>
+    </section> -->
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16">
+      <div class="container max-w-4xl px-4">
+        <div class="glass border rounded-2xl p-8">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
+            Let's work together
+          </h2>
+
+          <p
+            class="text-slate-600 dark:text-slate-300 mb-6 flex flex-col md:flex-row md:items-center md:gap-4"
+          >
+            <a href="tel:+994705635220" class="hover:underline"
+              >+994 70 563 52 20</a
+            >
+            |
+            <a href="mailto:alialieff4@gmail.com" class="hover:underline"
+              >alialieff4@gmail.com</a
+            >
+            |
+            <a
+              href="https://www.linkedin.com/in/ali-aliyev-51b829197"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:underline"
+              >LinkedIn</a
+            >
+          </p>
+          <p class="text-slate-600 dark:text-slate-300 mb-6">
+            Drop me a line — I typically respond within a day.
+          </p>
+          <form
+            action="https://formspree.io/f/mdkdyrgq"
+            method="POST"
+            class="grid md:grid-cols-2 gap-4"
+          >
+            <input
+              name="name"
+              required
+              placeholder="Your name"
+              class="p-3 rounded-lg border bg-white/80 dark:bg-slate-900/60"
+            />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Your email"
+              class="p-3 rounded-lg border bg-white/80 dark:bg-slate-900/60"
+            />
+            <textarea
+              name="message"
+              required
+              placeholder="Your message"
+              class="md:col-span-2 p-3 rounded-lg border min-h-[140px] bg-white/80 dark:bg-slate-900/60"
+            ></textarea>
+            <button
+              class="md:col-span-2 px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 border-t border-white/50 dark:border-slate-800/50">
+      <div
+        class="container max-w-6xl px-4 flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p>© <span id="year"></span> Ali Aliyev. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <a
+            id="lnk2"
+            class="p-2 rounded hover:bg-blue-100/60 dark:hover:bg-slate-800"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            id="mail2"
+            class="p-2 rounded hover:bg-blue-100/60 dark:hover:bg-slate-800"
+            aria-label="Email"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      // Theme toggle
+      const root = document.documentElement,
+        themeToggle = document.getElementById("themeToggle"),
+        themeIcon = document.getElementById("themeIcon");
+      const saved = localStorage.getItem("theme");
+      if (
+        saved === "dark" ||
+        (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        root.classList.add("dark");
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+      }
+      themeToggle.addEventListener("click", () => {
+        root.classList.toggle("dark");
+        const d = root.classList.contains("dark");
+        themeIcon.classList.toggle("fa-moon", !d);
+        themeIcon.classList.toggle("fa-sun", d);
+        localStorage.setItem("theme", d ? "dark" : "light");
+      });
+
+      // Typing effect
+      const typingEl = document.getElementById("typing");
+      let ri = 0,
+        ci = 0,
+        forward = true;
+      const roles = profile.roleCycle;
+      function typeLoop() {
+        const cur = roles[ri];
+        if (forward) {
+          typingEl.textContent = cur.slice(0, ++ci);
+          if (ci === cur.length) {
+            forward = false;
+            return setTimeout(typeLoop, 1200);
+          }
+        } else {
+          typingEl.textContent = cur.slice(0, --ci);
+          if (ci === 0) {
+            forward = true;
+            ri = (ri + 1) % roles.length;
+          }
+        }
+        setTimeout(typeLoop, forward ? 80 : 40);
+      }
+
+      // Helper
+      function el(html) {
+        const t = document.createElement("template");
+        t.innerHTML = html.trim();
+        return t.content.firstChild;
+      }
+
+      // Inject basics
+      document.getElementById("about").textContent = profile.about;
+      document.getElementById("loc").textContent = profile.location;
+
+      // Links
+      [
+        ["lnk", profile.links.linkedin],
+        ["lnk2", profile.links.linkedin],
+        ["mail", profile.links.email],
+        ["mail2", profile.links.email],
+      ].forEach(([id, href]) => {
+        const a = document.getElementById(id);
+        if (a) a.href = href;
+      });
+
+      // Highlights
+      const hi = document.getElementById("highlights");
+      profile.highlights.forEach((h) =>
+        hi.appendChild(
+          el(
+            `<div class="glass border rounded-xl px-3 py-2 flex items-center gap-3"><i class="fas ${h.icon} text-blue-600"></i><span class="text-sm font-medium">${h.label}</span></div>`
+          )
+        )
+      );
+
+      // Current role (prefer product)
+      const current =
+        profile.experience.find((e) => e.categories.includes("product")) ||
+        profile.experience[0];
+      if (current)
+        document.getElementById(
+          "currentRole"
+        ).textContent = `${current.title} · ${current.company}`;
+
+      // Projects
+      const grid = document.getElementById("projGrid");
+      profile.projects.forEach((p, i) =>
+        grid.appendChild(
+          el(`
+      <a href="${
+        p.link
+      }" class="group block border rounded-2xl p-5 bg-white/80 dark:bg-slate-900/60 hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="${
+            i * 80
+          }">
+        <div class="flex items-center justify-between mb-3"><span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700">${
+          p.tag
+        }</span><i class="fas fa-arrow-up-right-from-square opacity-0 group-hover:opacity-100 transition"></i></div>
+        <h3 class="font-semibold mb-1">${p.name}</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-300">${p.impact}</p>
+      </a>
+    `)
+        )
+      );
+
+      // EXPERIENCE
+      const tl = document.getElementById("timeline");
+      const tabsWrap = document.getElementById("expTabs");
+      const indicator = document.getElementById("segIndicator");
+      const tabs = [...tabsWrap.querySelectorAll(".seg2-btn")];
+      const cvBtn = document.getElementById("cvDownload");
+      const cvLabel = document.getElementById("cvLabel");
+
+      function renderExperience(filter) {
+        tl.querySelectorAll(".exp-item").forEach((n) => n.remove());
+        const list = profile.experience.filter((j) =>
+          j.categories.includes(filter)
+        );
+        list.forEach((job, idx) => {
+          const side =
+            idx % 2 === 0
+              ? "sm:justify-start sm:pr-12"
+              : "sm:justify-end sm:pl-12";
+          tl.appendChild(
+            el(`
+          <div class="exp-item relative flex ${side}" data-aos="fade-up" data-aos-delay="${
+              idx * 100
+            }">
+            <div class="relative w-full sm:w-1/2 my-6">
+              <div class="absolute left-3 sm:left-1/2 sm:-translate-x-1/2 top-1">
+                <span class="h-5 w-5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 ring-4 ring-white dark:ring-slate-900 inline-block"></span>
+              </div>
+              <div class="glass border rounded-2xl p-5 shadow">
+                <div class="flex items-center justify-between gap-3">
+                  <h3 class="font-bold">${job.title}</h3>
+                  <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">${
+                    job.dates
+                  }</span>
+                </div>
+                <p class="text-sm text-slate-500 mb-1">${job.company}</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700 dark:text-slate-300">
+                  ${job.bullets.map((b) => `<li>${b}</li>`).join("")}
+                </ul>
+              </div>
+            </div>
+          </div>
+        `)
+          );
+        });
+        if (window.AOS) AOS.refreshHard();
+      }
+
+      function moveIndicatorTo(btn) {
+        const r = tabsWrap.getBoundingClientRect();
+        const b = btn.getBoundingClientRect();
+        const left = b.left - r.left + 4;
+        const width = b.width - 8;
+        indicator.style.transform = `translateX(${left}px)`;
+        indicator.style.width = `${width}px`;
+        tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+        btn.setAttribute("aria-selected", "true");
+      }
+
+      function updateCvLink(filter) {
+        if (filter === "events") {
+          cvBtn.href =
+            "https://drive.google.com/file/d/1bwvRM_gVwOY2JH00ETLWOYIbJGfA6tU4/view?usp=sharing";
+          cvLabel.textContent = "Download CV";
+        } else {
+          cvBtn.href =
+            "https://drive.google.com/file/d/10zVIyvPIivACXbY_DztmQNHWb6H8a_HP/view?usp=sharing";
+          cvLabel.textContent = "Download CV";
+        }
+      }
+
+      tabs.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          moveIndicatorTo(btn);
+          renderExperience(btn.dataset.filter);
+          updateCvLink(btn.dataset.filter);
+        });
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            const i = tabs.indexOf(btn);
+            const ni =
+              (e.key === "ArrowRight" ? i + 1 : i - 1 + tabs.length) %
+              tabs.length;
+            tabs[ni].focus();
+            tabs[ni].click();
+          }
+        });
+      });
+
+      // Skills
+      const sw = document.getElementById("skillsWrap");
+      profile.skills.forEach((s, i) =>
+        sw.appendChild(
+          el(
+            `<span class="px-3 py-2 rounded-xl border bg-white/80 dark:bg-slate-900/60 text-sm" data-aos="zoom-in" data-aos-delay="${
+              i * 40
+            }">${s}</span>`
+          )
+        )
+      );
+
+      // // Testimonials
+      // const ts = document.getElementById("testis");
+      // profile.testimonials.forEach((t, i) =>
+      //   ts.appendChild(
+      //     el(
+      //       `<div class="glass border rounded-2xl p-6" data-aos="fade-up" data-aos-delay="${
+      //         i * 80
+      //       }"><p class="italic text-lg">“${
+      //         t.quote
+      //       }”</p><p class="mt-3 text-sm text-slate-500">— ${
+      //         t.author
+      //       }</p></div>`
+      //     )
+      //   )
+      // );
+
+      // Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Init
+      AOS.init({ duration: 900, once: true });
+      typeLoop();
+
+      // Default selection
+      const defaultTab =
+        tabs.find((b) => b.dataset.filter === "product") || tabs[0];
+      moveIndicatorTo(defaultTab);
+      renderExperience(defaultTab.dataset.filter);
+      updateCvLink(defaultTab.dataset.filter);
+
+      // Reposition indicator on resize
+      window.addEventListener("resize", () =>
+        moveIndicatorTo(
+          document.querySelector('.seg2-btn[aria-selected="true"]')
+        )
+      );
+    </script>
+  </body>
+</html>
